@@ -24,6 +24,20 @@ public class BinarySearchTree {
             return 0;
         return Size(root.LeftNode) + 1 + Size(root.RightNode);
     }
+    public boolean SearchElements(Node Root, int Data) {
+        if (Root == null)
+            return false;
+        if(Root.Data == Data)
+            return true;
+        else
+            return SearchElements(Root.LeftNode, Data) || SearchElements(Root.RightNode, Data);
+    }
+    public void Search(int Data) {
+        if(SearchElements(root, Data))
+            System.out.println("The Element you were searching for = " +Data);
+        else
+            System.out.println("Invalid input,Not in the Tree");
+    }
     public void Inorder(Node node) {
         if (node == null) {
             return;
@@ -50,6 +64,7 @@ public class BinarySearchTree {
         binarySearchTree.PrintOrder();
         binarySearchTree.Size(root);
         System.out.println("Tree size is = " + Size(root));
+        binarySearchTree.Search(63);
     }
 }
 
